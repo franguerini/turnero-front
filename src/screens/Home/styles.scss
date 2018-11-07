@@ -1,0 +1,13 @@
+.home{
+    background-color: lightblue;
+    margin-top: 40px; 
+    height: 100%;
+}
+
+.home-container{
+    display: flex;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 80px auto;
+}
