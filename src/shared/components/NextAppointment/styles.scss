@@ -22,4 +22,14 @@
         margin: 0 10px;
     }
 
+    .next-appointment-info-container{
+        display: flex;
+        flex-direction: column;
+        .next-appointment-info-element{
+            margin: 5px;
+            font-size: 12px;
+        }
+    }
+
+
 }

@@ -4,11 +4,7 @@ import "./styles.scss";
 
 class InfoContainer extends Component {
   render() {
-    return (
-      <div className="info-container">
-        <NextAppointments />
-      </div>
-    );
+    return <div className="info-container">{this.props.children}</div>;
   }
 }
 

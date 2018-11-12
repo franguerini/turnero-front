@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 
 import Layout from "../../shared/components/Layout";
+import LoginForm from "./layout";
+import "./styles.scss";
 
-class Profile extends Component {
+class Login extends Component {
   render() {
     return (
       <Layout>
-        <span>Perfil</span>
+        <LoginForm />
       </Layout>
     );
   }
 }
 
-export default Profile;
+export default Login;

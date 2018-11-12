@@ -1,0 +1,24 @@
+.doctors-container{
+    background-color: lightblue;
+    margin-top: 80px;
+    padding: 25px 0; 
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    
+    .doctors-title{
+        margin: 0 auto 15px;
+        font-size: 32px;
+        
+    }
+    .doctors-list-container{
+        display: flex; 
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        @media only screen and (min-width: 600px) {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    }
+}

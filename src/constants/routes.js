@@ -1,6 +1,7 @@
 const ROUTES = {
   HOME: () => "/",
-  PROFILE: id => `/users/${id}`
+  DOCTORS: () => `/doctors`,
+  LOGIN: () => `/login`
 };
 
 export default ROUTES;

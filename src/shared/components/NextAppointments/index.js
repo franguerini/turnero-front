@@ -26,8 +26,12 @@ class NextAppointments extends Component {
         <span className="appointment-title">Proximos Turnos</span>
         {appointments.map(appointment => (
           <div className="next-appointment-container">
-            <span>{`Fecha: ${appointment.date}`}</span>
-            <span>{`Hora: ${appointment.time}`}</span>
+            <span className="next-appointment-element">{`Fecha: ${
+              appointment.date
+            }`}</span>
+            <span className="next-appointment-element">{`Hora: ${
+              appointment.time
+            }`}</span>
           </div>
         ))}
       </div>
