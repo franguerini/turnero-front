@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -35,7 +35,41 @@ class LoginForm extends Component {
                 value={password}
               />
             </div>
-            <input className="form-submit" type="submit" value="LOGIN" />
+            <div className="form-group">
+              <label className="form-label">Nombre</label>
+              <input
+                className="form-input"
+                type="text"
+                name="name"
+                onChange={e => this.setState({ password: e.target.value })}
+                value={password}
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Direccion</label>
+              <input
+                className="form-input"
+                type="text"
+                name="address"
+                onChange={e => this.setState({ password: e.target.value })}
+                value={password}
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Plan Medico</label>
+              <input
+                className="form-input"
+                type="text"
+                name="planMedic"
+                onChange={e => this.setState({ password: e.target.value })}
+                value={password}
+              />
+            </div>
+            <input
+              className="form-submit"
+              type="submit"
+              value="Registrar usuario"
+            />
           </div>
         </form>
       </div>
@@ -55,4 +89,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(RegisterForm);

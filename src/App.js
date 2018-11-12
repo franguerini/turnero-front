@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import Home from "./screens/Home";
 import Doctors from "./screens/Doctors";
 import Login from "./screens/Login";
+import Register from "./screens/Register";
+import NewAppointment from "./screens/NewAppointment";
 import ROUTES from "./constants/routes";
 
 class App extends Component {
@@ -17,6 +19,12 @@ class App extends Component {
             <Route exact path={ROUTES.HOME()} component={Home} />
             <Route exact path={ROUTES.DOCTORS()} component={Doctors} />
             <Route exact path={ROUTES.LOGIN()} component={Login} />
+            <Route exact path={ROUTES.REGISTER()} component={Register} />
+            <Route
+              exact
+              path={ROUTES.NEWAPPOINTMENT(":id")}
+              component={NewAppointment}
+            />
           </Switch>
         </BrowserRouter>
       </Provider>
