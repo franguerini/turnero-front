@@ -1,19 +1,25 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.onSubmit = this.onSubmit.bind(this);
+    this.state = { logged: false };
   }
+
+  login = email => {
+    localStorage.setItem("email", JSON.stringify(email));
+    this.setState({ logged: true });
+  };
 
   render() {
     let { email, password } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
+    if (this.state.logged) return <Redirect to={"/"} />;
     return (
       <div className="login-form-container">
-        <form name="loginForm" onSubmit={this.onSubmit}>
+        <div name="loginForm">
           <div className="form-group-collection">
             <div className="form-group">
               <label className="form-label">Email</label>
@@ -35,15 +41,13 @@ class LoginForm extends Component {
                 value={password}
               />
             </div>
-            <input className="form-submit" type="submit" value="LOGIN" />
+            <button onClick={() => this.login(email)} className="form-submit">
+              LOGIN
+            </button>
           </div>
-        </form>
+        </div>
       </div>
     );
-  }
-
-  onSubmit(e) {
-    console.log("submit");
   }
 }
 

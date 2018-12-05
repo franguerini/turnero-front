@@ -3,7 +3,8 @@ const ROUTES = {
   DOCTORS: () => `/doctors`,
   LOGIN: () => `/login`,
   REGISTER: () => `/register`,
-  NEWAPPOINTMENT: id => `/new-appointment/${id}`
+  HISTORY: () => "/historia",
+  NEWAPPOINTMENT: name => `/new-appointment/${name}`
 };
 
 export default ROUTES;

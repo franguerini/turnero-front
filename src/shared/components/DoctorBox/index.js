@@ -8,7 +8,7 @@ class DoctorBox extends Component {
     const { image, name, speciality, id } = this.props.doctor;
     return (
       <Link
-        to={ROUTES.NEWAPPOINTMENT(id)}
+        to={ROUTES.NEWAPPOINTMENT(name)}
         style={{ textDecoration: "none" }}
         className="doctor-box-container"
       >

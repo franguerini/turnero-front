@@ -7,8 +7,16 @@ import "react-datepicker/dist/react-datepicker.css";
 class NewAppointmentForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { doctor: this.props.match.params.name };
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    let turnos = JSON.parse(localStorage.getItem("turnos"));
+    if (!turnos) turnos = [];
+    turnos.push(this.state);
+    localStorage.setItem("turnos", JSON.stringify(turnos));
+    this.setState({ submit: true });
   }
 
   handleChangeDate = date => {
@@ -19,11 +27,11 @@ class NewAppointmentForm extends Component {
   };
 
   render() {
-    let { email, password, date } = this.state;
+    let { doctor, date, time, coment, submit, dateMom } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
     return (
       <div className="login-form-container">
-        <form name="loginForm" onSubmit={this.onSubmit}>
+        <div>
           <div className="form-group-collection">
             <div className="form-group">
               <label className="form-label">Doctor</label>
@@ -31,24 +39,29 @@ class NewAppointmentForm extends Component {
                 className="form-input"
                 type="text"
                 name="text"
-                onChange={e => this.setState({ email: e.target.value })}
-                value={this.props.id}
+                value={this.props.match.params.name}
               />
             </div>
             <div className="form-group">
               <label className="form-label">Fecha</label>
               <DatePicker
                 className="form-input"
-                selected={this.state.date}
-                onChange={this.handleChangeDate}
+                minDate={moment()}
+                selected={this.state.dateMom}
+                onChange={dateMom =>
+                  this.setState({ date: dateMom.format("LL"), dateMom })
+                }
+                value={dateMom}
               />
             </div>
             <div className="form-group">
               <label className="form-label">Hora</label>
               <DatePicker
                 className="form-input"
-                selected={this.state.time}
-                onChange={this.handleChangeTime}
+                selected={this.state.timeMom}
+                onChange={timeMom =>
+                  this.setState({ time: timeMom.format("hh:mm a"), timeMom })
+                }
                 showTimeSelect
                 showTimeSelectOnly
                 timeIntervals={15}
@@ -62,23 +75,24 @@ class NewAppointmentForm extends Component {
                 className="form-input"
                 type="text"
                 name="comment"
-                onChange={e => this.setState({ password: e.target.value })}
-                value={password}
+                onChange={e => this.setState({ coment: e.target.value })}
+                value={coment}
               />
             </div>
-            <input
-              className="new-apointment-submit"
-              type="submit"
-              value="CONFIRMAR TURNO"
-            />
+            <button onClick={this.onSubmit} className="new-apointment-submit">
+              CONFIRMAR TURNO
+            </button>
           </div>
-        </form>
+        </div>
+        {submit && (
+          <span className="exito">
+            Turno generado con {this.props.match.params.name}, el dia{" "}
+            {this.state.date && this.state.date} a las{" "}
+            {this.state.time && this.state.time}
+          </span>
+        )}
       </div>
     );
-  }
-
-  onSubmit(e) {
-    console.log("submit");
   }
 }
 

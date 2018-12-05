@@ -10,14 +10,29 @@ import "./styles.scss";
 
 const doctors = [
   { id: 1, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 2, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 3, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 4, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 5, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 6, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 7, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 8, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor },
-  { id: 9, name: "Juan Perez", speciality: "Traumatologia", image: imgDoctor }
+  {
+    id: 2,
+    name: "Martin Rod",
+    speciality: "Psiquiatra",
+    image: imgDoctor
+  },
+  { id: 3, name: "Jazmin Lopez", speciality: "Pediatra", image: imgDoctor },
+  {
+    id: 4,
+    name: "Clauida Lint",
+    speciality: "Traumatologia",
+    image: imgDoctor
+  },
+  {
+    id: 5,
+    name: "Arturo Kode",
+    speciality: "Oftalmologia",
+    image: imgDoctor
+  },
+  { id: 6, name: "Marcos Shultz", speciality: "Clinico", image: imgDoctor },
+  { id: 7, name: "Marta Tomar", speciality: "Clinico", image: imgDoctor },
+  { id: 8, name: "Claudio Roma", speciality: "Oftalmologia", image: imgDoctor },
+  { id: 9, name: "Julian Alvarez", speciality: "Nutricion", image: imgDoctor }
 ];
 
 class DoctorsView extends Component {

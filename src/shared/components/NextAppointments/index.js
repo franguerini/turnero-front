@@ -24,7 +24,7 @@ class NextAppointments extends Component {
     return (
       <div className="appointment-container">
         <span className="appointment-title">Proximos Turnos</span>
-        {appointments.map(appointment => (
+        {this.props.turnos.map(appointment => (
           <div className="next-appointment-container">
             <span className="next-appointment-element">{`Fecha: ${
               appointment.date

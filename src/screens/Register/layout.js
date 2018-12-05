@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import DatePicker from "react-datepicker";
+import moment from "moment";
+import "react-datepicker/dist/react-datepicker.css";
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -9,7 +12,7 @@ class RegisterForm extends Component {
   }
 
   render() {
-    let { email, password } = this.state;
+    let { email, password, address, birth, medic, name } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
     return (
       <div className="login-form-container">
@@ -41,8 +44,17 @@ class RegisterForm extends Component {
                 className="form-input"
                 type="text"
                 name="name"
-                onChange={e => this.setState({ password: e.target.value })}
-                value={password}
+                onChange={e => this.setState({ name: e.target.value })}
+                value={name}
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Nacimiento</label>
+              <DatePicker
+                className="form-input"
+                selected={this.state.birth}
+                onChange={date => this.setState({ birth: date })}
+                value={birth}
               />
             </div>
             <div className="form-group">
@@ -51,8 +63,8 @@ class RegisterForm extends Component {
                 className="form-input"
                 type="text"
                 name="address"
-                onChange={e => this.setState({ password: e.target.value })}
-                value={password}
+                onChange={e => this.setState({ address: e.target.value })}
+                value={address}
               />
             </div>
             <div className="form-group">
@@ -61,8 +73,8 @@ class RegisterForm extends Component {
                 className="form-input"
                 type="text"
                 name="planMedic"
-                onChange={e => this.setState({ password: e.target.value })}
-                value={password}
+                onChange={e => this.setState({ medic: e.target.value })}
+                value={medic}
               />
             </div>
             <input
